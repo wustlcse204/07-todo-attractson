@@ -7,8 +7,8 @@ var listRequest = new XMLHttpRequest();
     if (this.readyState == 4 && this.status == 200) {
         var todos = JSON.parse(this.responseText);
         // display Todos on page
-        for(var listvar = 0; listvar < todos.length; listvar++){
-          renderTodo(todos[listvar]);
+        for(var index = 0; index < todos.length; index++){
+          renderTodo(todos[index]);
         }
       } else if (this.readyState == 4){
         console.log(this.responseText);
@@ -28,7 +28,7 @@ document.getElementById("new-todo-form").addEventListener("submit",function(even
   event.preventDefault();
 
   //submit todo to api
-    var dataneeded = {
+    var data = {
       text: newtitle.value
     }
     var createRequest = new XMLHttpRequest();
@@ -47,7 +47,7 @@ document.getElementById("new-todo-form").addEventListener("submit",function(even
     createRequest.open("POST", "https://api.kraigh.net/todos/", true);
     createRequest.setRequestHeader("Content-type", "application/json");
     createRequest.setRequestHeader("x-api-key", apikey);
-    createRequest.send(JSON.stringify(dataneeded));
+    createRequest.send(JSON.stringify(data));
 });
 // display new Todo on page
 
@@ -94,8 +94,8 @@ function completeTodo(event){
       // event listener on button check
       // API Call, put to set completed to true
       console.log(event);
-      var todoforId = event.target.parentNode.id;
-      var dataneeded = {
+      var todoId = event.target.parentNode.id;
+      var data = {
         completed: true
       };
       var comRequest = new XMLHttpRequest();
@@ -106,16 +106,16 @@ function completeTodo(event){
           console.log(this.responseText)
         }
       }
-      comRequest.open("PUT", "https://api.kraigh.net/todos/" + todoforId, true);
+      comRequest.open("PUT", "https://api.kraigh.net/todos/" + todoId, true);
       comRequest.setRequestHeader("Content-type", "application/json");
       comRequest.setRequestHeader("x-api-key", apikey);
-      comRequest.send(JSON.stringify(dataneeded));
+      comRequest.send(JSON.stringify(data));
       // add completed class
 }
 
 function deleteTodo(event){
       // Handle Todo completion
-      var todoforId = event.target.parentNode.id;
+      var todoId = event.target.parentNode.id;
 
       // event listener on button check
       // API Call,delete to remove
@@ -128,7 +128,7 @@ function deleteTodo(event){
           console.log(this.responseText);
         }
       }
-      delRequest.open("DELETE", "https://api.kraigh.net/todos/" + todoforId, true);
+      delRequest.open("DELETE", "https://api.kraigh.net/todos/" + todoId, true);
       delRequest.setRequestHeader("Content-type", "application/json");
       delRequest.setRequestHeader("x-api-key", apikey);
       delRequest.send();
