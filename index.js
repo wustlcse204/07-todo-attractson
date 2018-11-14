@@ -24,7 +24,7 @@ listRequest.send();
 // display ToDos on page
 
 // Handle new todo form submit.
-document.getElementById("newTodoForm").addEventListener("submit", function (event) {
+document.getElementById("newTodoForm").addEventListener("submit",function(event) {
   event.preventDefault();
 
   //submit todo to api
@@ -63,11 +63,9 @@ function renderTodo(Datatodo){
   // create complete button
   var compButton = document.createElement("button");
   compButton.classList.add("check");
-
   todo.appendChild(compButton);
   // add todo responseText
   var todoText = document.createElement("p");
-
   todoText.innerHTML = Datatodo.text;
   // todotext.innerText = Datatodo.text;
 
@@ -82,8 +80,8 @@ function renderTodo(Datatodo){
   // add event listeners for button
 
   document.getElementById("todos").appendChild(todo);
-  compButton.addEventListener("check",completeTodo);
-  delButton.addEventListener("check",deleteTodo);
+  compButton.addEventListener("click",completeTodo);
+  delButton.addEventListener("click",deleteTodo);
   document.getElementById("newtitle").value = '';
 }
 
@@ -91,7 +89,7 @@ function renderTodo(Datatodo){
 function completeTodo(event){
 
   // Handle Todo completion
-      // event listener on button check
+      // event listener on button click
       // API Call, put to set completed to true
       console.log(event);
       var todoId = event.target.parentNode.id;
@@ -117,7 +115,7 @@ function deleteTodo(event){
       // Handle Todo completion
       var todoId = event.target.parentNode.id;
 
-      // event listener on button check
+      // event listener on button click
       // API Call,delete to remove
 
       var delRequest = new XMLHttpRequest();
