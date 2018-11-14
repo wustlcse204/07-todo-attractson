@@ -4,21 +4,20 @@ body{
 
 #todos {
   width: 60%;
+  margin : 3vw;
   margin-left: auto;
   margin-right: auto;
-  margin-top : 6vw;
-  margin-bottom: auto;
   padding: 3vw;
-  border: 1px solid hsl(0,0%,0%);
+  border: 2.5px solid hsl(0,0%,0%);
 }
 
 @media (max-width: 800px){
   #todos{
-    width: 80%;
+    width: 90%;
   }
 }
 
-#todos #new-todo #newtitle{
+#todos #newtodo #newtitle{
   width:90%;
   font-size: 30px;
   border: none;
@@ -26,11 +25,11 @@ body{
   margin-bottom: 1vw;
 }
 
-#todos #new-todo #newtitle:focus{
+#todos #newtodo #newtitle:focus{
   outline: none;
 }
 
-#todos #new-todo #new-submit{
+#todos #newtodo #newSubmit{
   background-color: hsl(220, 100%, 60%);
   color: white;
   border: none;
@@ -43,11 +42,11 @@ body{
   top: 5px;
 }
 
-#todos #new-todo #new-submit:hover{
+#todos #newtodo #newSubmit:hover{
   background-color: hsl(220, 100%, 50%);
 }
 
-#todos #new-todo #new-submit:active{
+#todos #newtodo #newSubmit:active{
   background-color: black ;
 }
 
@@ -72,6 +71,7 @@ body{
   background: none;
   position: relative;
   bottom: -2px;
+  color: white;
 }
 
 #todos .todo .check {
@@ -81,10 +81,11 @@ body{
   height: 30px;
   border: 2px solid #888;
   border-radius: 4px;
+  font-weight: bold;
 }
 
 #todos .todo .check:hover {
-  background-color: hsl(180, 50%, 80%);
+  background-color: hsl(120, 50%, 80%);
 }
 
 #todos .todo .check:active{
@@ -93,6 +94,7 @@ body{
 
 #todos .todo.completed {
   color: lightgray;
+  font-weight: lighter;
 }
 
 #todos .todo.completed p {
