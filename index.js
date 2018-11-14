@@ -28,7 +28,7 @@ document.getElementById("newTodoForm").addEventListener("submit", function (even
   event.preventDefault();
 
   //submit todo to api
-    var dataneed = {
+    var data = {
       text: newtitle.value
     }
     var createRequest = new XMLHttpRequest();
@@ -47,7 +47,7 @@ document.getElementById("newTodoForm").addEventListener("submit", function (even
     createRequest.open("POST", "https://api.kraigh.net/todos/", true);
     createRequest.setRequestHeader("Content-type", "application/json");
     createRequest.setRequestHeader("x-api-key", apikey);
-    createRequest.send(JSON.stringify(dataneed));
+    createRequest.send(JSON.stringify(data));
 });
 // display new Todo on page
 
@@ -95,7 +95,7 @@ function completeTodo(event){
       // API Call, put to set completed to true
       console.log(event);
       var todoId = event.target.parentNode.id;
-      var dataneed = {
+      var data = {
         completed: true
       };
       var comRequest = new XMLHttpRequest();
@@ -109,7 +109,7 @@ function completeTodo(event){
       comRequest.open("PUT", "https://api.kraigh.net/todos/" + todoId, true);
       comRequest.setRequestHeader("Content-type", "application/json");
       comRequest.setRequestHeader("x-api-key", apikey);
-      comRequest.send(JSON.stringify(dataneed));
+      comRequest.send(JSON.stringify(data));
       // add completed class
 }
 
